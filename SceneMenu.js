@@ -6,7 +6,6 @@ class SceneMenu extends Phaser.Scene {
     //preload function
     preload() {
         this.load.image('logo', 'assets/logo.jpg');
-        this.load.image('play_btn', 'assets/playBtn.jpg');
     }
 
     //create function
@@ -15,9 +14,7 @@ class SceneMenu extends Phaser.Scene {
         this.ImageLogo.displayWidth = 500;
         this.ImageLogo.displayHeight = 900;
 
-        this.ImagePlay_btn = this.add.sprite(250, 350, 'play_btn');
-        this.ImagePlay_btn.inputEnabled = true;
-
+        this.LogoText= this.add.text(220, 300, "click spase", {font: " 30px bold"})
         this.Key_Spase = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
     }
