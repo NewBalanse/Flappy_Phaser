@@ -164,9 +164,11 @@ class GameScene extends Phaser.Scene {
         this.Bot = null;
         this.groundImg.destroy();
         this.CreateTube();
+        this.bird.y = 300;
     }
 
     StopGames() {
+
         this.bird.body.velocity.y = 0;
         this.bird.setBounce(0);
         this.bird.setGravity(0, 0);
@@ -187,7 +189,7 @@ class GameScene extends Phaser.Scene {
         var max = 150;
 
         this.Top[i].y = Math.random() * (max - min) + min;
-        this.Bot[i].y = 600;
+        this.Bot[i].y = this.Top[i].y + 450;
 
     }
 
@@ -206,7 +208,7 @@ class GameScene extends Phaser.Scene {
                 XstartPos += 150;
 
             this.Top[i] = this.physics.add.sprite(XstartPos, Math.random() * (Height - Ymin) + Ymin, 'TopTube');
-            this.Bot[i] = this.physics.add.sprite(XstartPos, 600, 'BottomTube');
+            this.Bot[i] = this.physics.add.sprite(XstartPos, this.Top[i].y + 450, 'BottomTube');
 
             this.Bot[i].allowGravity = false;
             this.Bot[i].immovable = true;
